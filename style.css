@@ -1,0 +1,148 @@
+:root {
+    --navy-950-main: hsl(233, 47%, 7%);
+    --blue-950-card: hsl(244, 37%, 16%);
+    --purple-500-accent: hsl(277, 64%, 61%);
+    --purple-overlay: hsla(277, 93%, 32%, 0.5);
+    --white-heading: hsl(0, 0%, 100%);
+    --white-paragraph: hsla(0, 0%, 100%, 0.75);
+    --white-stat: hsla(0, 0%, 100%, 0.6);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+    background-color: var(--navy-950-main);
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 15px;
+    color: var(--white-heading);
+}
+
+.card {
+    width: 300px;
+    background-color: var(--blue-950-card);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card__image {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--purple-overlay);
+}
+
+.card__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.card__detail {
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card__detail h1 {
+    font-size: 1.5rem;
+    font-family: "Inter", sans-serif;
+}
+
+.card__detail h1 span {
+    color: var(--purple-500-accent);
+}
+
+.card__detail > p {
+    font-size: 0.75rem;
+    color: var(--white-paragraph);
+    line-height: 1.5;
+}
+
+.card__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.card__stat p {
+    color: var(--white-stat);
+    font-size: 0.75rem;
+}
+
+.card__stat p span {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--white-heading);
+    margin: 5px;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+}
+
+@media (min-width: 600px) {
+    .card {
+        width: 1000px;
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 20px;
+    }
+
+    .card__image {
+        flex: 1.5;
+    }
+
+    .card__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .card__detail {
+        flex: 1;
+        text-align: left;
+        align-items: flex-start;
+        padding: 60px;
+    }
+
+    .card__detail h1 {
+        font-size: 1.8rem;
+    }
+
+    .card__detail > p {
+        font-size: 0.9rem;
+    }
+
+    .card__stat {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    .card__stat p {
+        font-size: 0.9rem;
+    }
+
+    .card__stat p span {
+        font-size: 1.5rem;
+    }
+}
